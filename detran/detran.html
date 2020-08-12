@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Detran</title>
+    </head>
+    <body>
+        <header>
+            <h1>
+                Veja se você está regular ou não!
+            </h1>
+        </header>
+        <section>
+            <div id="entradas">
+                <p>
+                    Quantas multas desejas cadastrar? <br>
+                    <input type="number" name="multas" id="multas" placeholder="Multas">
+                </p>
+                <p>
+                    Qual o valor total das multas cadastradas? <br>
+                    <input type="number" name="valor" id="valor" placeholder="R$ 00,00">
+                </p>
+                <p>
+                    Pontos perdidos? <br>
+                    <input type="number" name="pontos" id="pontos" placeholder="Pontos">
+                </p>
+                
+            </div>
+            <div id="btns">
+                <button onclick="verificar()">Verificar</button>
+                <button onclick="limpar()">Limpar</button>
+            </div>
+            <div id="res">
+
+            </div>
+        </section>
+        <footer>
+            <p>
+                &copy; Renan
+            </p>
+        </footer>
+
+        <script>
+            function verificar(){
+                let multas = document.getElementById('multas').value
+                let valor = document.getElementById('valor').value
+                let pontos = document.getElementById('pontos').value
+                let res = document.getElementById('res')
+                if(multas == '' || valor == '' || pontos == ''){
+                    alert('Conclua o seu cadastro')
+                    document.getElementById('multas').focus()
+                } else {
+                    if(pontos >= 21){
+                        res.innerHTML = '<p>Você está irregular!</p>'
+                    } else {
+                        res.innerHTML = '<p>Você está regular!</p>'
+                    }
+                    res.innerHTML += `O total de multas cadastradas foram ${multas}, o valor total foi R$ ${valor} e o total de pontos perdidos foi ${pontos}.`
+                }
+            }
+            function limpar(){
+                document.getElementById('multas').value = ''
+                document.getElementById('valor').value = ''
+                document.getElementById('pontos').value = ''
+                document.getElementById('multas').focus()
+                res.innerHTML = ''
+            }
+        </script>
+    </body>
+</html>
