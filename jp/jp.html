@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>João e Pedro</title>
+</head>
+<body>
+    <header>
+        <h1>
+            João e Pedro
+        </h1>
+        <p>
+            Joãozinho com 1,75m de altura cresce 1 cm por ano. <br>
+            Pedrinho, amigo de Joãozinho, tem 1,60m de altura e cresce 3 cm por ano.
+        </p>
+    </header>
+    <section>
+        <div id="interacao">
+            <p>
+                Veja em quantos anos Pedrinho precisaria para passar Joãozinho em na altura.
+            </p>
+        </div>
+        <div id="btn">
+            <button onclick="calculo()">
+                ??????
+            </button>
+        </div>
+        <div id="res">
+
+        </div>
+    </section>
+    <footer>
+        <p>
+            &copy; Renan
+        </p>
+    </footer>
+
+    <script>
+        const res = document.getElementById("res")
+        function calculo() { //Professor travei nessa!
+            let p = 1.60
+            let j = 1.75
+            for(j = 1.75; j != p; j++){
+                for(p = 1.60; p >= j; p + 3){
+                    console.log(p)
+                }
+            }
+            
+        }
+    </script>
+</body>
+</html>
