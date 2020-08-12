@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Par</title>
+</head>
+<body onload="foca()">
+    <header>
+        <h1>
+            Veja a média dos números
+        </h1>
+        <p>
+            Só conta se forem pares
+        </p>
+    </header>
+    <section>
+        <div id="entradas">
+            <input type="number" name="um" id="um"> <br>
+            <input type="number" name="dois" id="dois"> <br>
+            <input type="number" name="três" id="três"> <br>
+            <input type="number" name="quatro" id="quatro"> <br>
+            <input type="number" name="cinco" id="cinco"> <br>
+        </div>
+        <div id="clicks">
+            <button onclick="par()">Ver média</button>
+            <button onclick="limpar()">Limpar</button>
+        </div>
+        <div id="res">
+
+        </div>
+    </section>
+    <footer>
+        <p>
+            &copy; Renan
+        </p>
+    </footer>
+
+    <script>
+        //Função que foca no primeiro input após carregar o body
+        function foca(){
+            let n1 = document.getElementById("um")
+            n1.focus()
+            n1.value = ''
+        }
+        //Função que gera se é ímpar ou par
+        function par(){
+            let n1 = Number(document.getElementById("um").value)
+            let n2 = Number(document.getElementById("dois").value)
+            let n3 = Number(document.getElementById("três").value)
+            let n4 = Number(document.getElementById("quatro").value)
+            let n5 = Number(document.getElementById("cinco").value)
+            let res = document.getElementById("res")
+            let total = (n1 + n2 + n3 + n4 + n5)
+            let media = total/5
+
+            //Se os inputs não tem comprimento retorna o alert e após isso retorna a função limpar
+            if(n1.length == '' || n2.length == '' || n3.length == '' || n4.length == '' || n5.length == '') {
+                alert("Digite seus números")//Está contando como zero e não está rodando essa parte :(
+                return limpar()
+                return foca()
+            } else {
+                if(total % 2 == 0) { 
+                    res.innerHTML = 'Sua média é ' + media
+                } else {
+                    alert("Um dos números digitados era ímpar")
+                    return limpar()
+                    return foca()
+                }
+                
+            }
+            
+        }
+        //Função que limpa os inputs e foca no primeiro input
+        function limpar(){
+            document.getElementById("um").value = ''
+            document.getElementById("dois").value = ''
+            document.getElementById("três").value = ''
+            document.getElementById("quatro").value = ''
+            document.getElementById("cinco").value =''
+            document.getElementById("res").innerHTML = ''
+
+            return foca()
+            
+        }
+    </script>
+</body>
+</html>
