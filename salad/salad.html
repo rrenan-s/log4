@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salada de Frutas</title>
+</head>
+<body onload="foca()">
+    <header>
+        <h1>
+            Monte a sua salada de fruta dos sonhos!
+        </h1>
+        <p>
+            No final encerre com uma cereja!
+        </p>
+    </header>
+    <section>
+        <div id="entradas">
+            <input type="text" name="fruta1" id="fruta1"> <br>
+            <input type="text" name="fruta2" id="fruta2"> <br>
+            <input type="text" name="fruta3" id="fruta3"> <br>
+            <input type="text" name="fruta4" id="fruta4"> <br>
+            <input type="text" name="fruta5" id="fruta5"> <br>
+            
+        </div>
+        <div id="btns">
+            <button onclick="add()">Adicionar mais</button>
+            <button onclick="finalizar()">Finalizar</button>
+        </div>
+        <div id="res">
+
+        </div>
+    </section>
+    <footer>
+        <p>
+            &copy; Renan
+        </p>
+    </footer>
+
+    <script>
+        const res = document.getElementById("res")
+        const frutas = document.getElementById("entradas")
+        //const salad = [] Tentei usar array professor mas não deu
+
+        function foca(){
+            document.getElementById("fruta1").focus()
+        }
+
+        function limpar(){//Função para limpar os campos
+            document.getElementById("fruta1").value = ''
+            document.getElementById("fruta2").value = ''
+            document.getElementById("fruta3").value = ''
+            document.getElementById("fruta4").value = ''
+            document.getElementById("fruta5").value =''
+            document.getElementById("res").innerHTML = ''
+
+            return foca()
+        }
+
+        function add(){ //Função para adicionar mais campos(frutas)
+            let novaFruta = document.createElement('input')
+            novaFruta.setAttribute('type', 'text')
+            frutas.appendChild(novaFruta)
+
+        }
+        
+        function finalizar(){//Função para finalizar a salada de frutas
+            let fruta1 = document.getElementById("fruta1").value
+            let fruta2 = document.getElementById("fruta2").value
+            let fruta3 = document.getElementById("fruta3").value
+            let fruta4 = document.getElementById("fruta4").value
+            let fruta5 = document.getElementById("fruta5").value
+
+            if(fruta1.length == '' || fruta2.length == '' || fruta3.length == '' || fruta4.length == '' || fruta5.length == ''){
+                alert("Desculpa, mas não dá para fazer uma salada de frutas sem frutas")
+                return limpar()
+                return foca()
+            } else {
+                if(fruta5 !== 'cereja'){
+                    alert("Desculpa, mas você não finalizou com a cereja! Tente de novo.")
+                    return foca()
+                } else {
+                    res.innerHTML = 'Sua salada foi composta por ' + fruta1 + ', ' + fruta2 + ', ' + fruta3 + ', ' + fruta4 + ', ' + fruta5
+                }
+            }
+            
+        }
+    </script>
+</body>
+</html>
